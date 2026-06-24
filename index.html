@@ -3,35 +3,35 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover, maximum-scale=1, user-scalable=no">
-<title>Спелое Лето Catch</title>
+<title>Копи и Лети — ВТБ</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700;900&display=swap" rel="stylesheet">
 <style>
 :root {
-  --teal:        #0E5A6B;
-  --teal-deep:   #0A3F4D;
-  --teal-dark:   #062731;
-  --teal-light:  #1C8FA3;
-  --teal-glow:   rgba(28,143,163,0.4);
-  --amber:       #E8622E;
-  --amber-glow:  rgba(232,98,46,0.35);
+  --blue:        #0033A0;
+  --blue-deep:   #00257A;
+  --blue-dark:   #001640;
+  --blue-light:  #2E5BFF;
+  --blue-glow:   rgba(46,91,255,0.4);
+  --cyan:        #00B6ED;
+  --cyan-glow:   rgba(0,182,237,0.35);
   --white:       #FFFFFF;
-  --off-white:   #EAF6F4;
-  --card:        rgba(255,255,255,0.10);
-  --card-border: rgba(255,255,255,0.15);
-  --text-dim:    rgba(255,255,255,0.60);
-  --text-muted:  rgba(255,255,255,0.30);
-  --green:       #4FD17A;
-  --green-glow:  rgba(79,209,122,0.35);
-  --red:         #FF5C4C;
-  --yellow:      #FFD23F;
+  --off-white:   #EAF1FF;
+  --card:        rgba(255,255,255,0.08);
+  --card-border: rgba(255,255,255,0.14);
+  --text-dim:    rgba(255,255,255,0.62);
+  --text-muted:  rgba(255,255,255,0.32);
+  --green:       #2FD477;
+  --green-glow:  rgba(47,212,119,0.35);
+  --red:         #FF5454;
+  --yellow:      #FFC72C;
 }
 
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 html { overflow: hidden; height: 100%; }
 
 body {
-  background: var(--teal-dark);
+  background: var(--blue-dark);
   color: var(--white);
   font-family: 'Nunito', 'Helvetica Neue', sans-serif;
   height: 100%;
@@ -46,16 +46,16 @@ body::before {
   content: '';
   position: fixed; inset: 0;
   background:
-    radial-gradient(ellipse 70% 50% at 20% 0%, rgba(28,143,163,0.5) 0%, transparent 60%),
-    radial-gradient(ellipse 50% 40% at 90% 80%, rgba(10,63,77,0.6) 0%, transparent 55%),
-    radial-gradient(ellipse 40% 30% at 50% 50%, rgba(6,39,49,0.4) 0%, transparent 60%);
+    radial-gradient(ellipse 70% 50% at 20% 0%, rgba(46,91,255,0.45) 0%, transparent 60%),
+    radial-gradient(ellipse 50% 40% at 90% 80%, rgba(0,37,122,0.6) 0%, transparent 55%),
+    radial-gradient(ellipse 40% 30% at 50% 50%, rgba(0,22,64,0.4) 0%, transparent 60%);
   pointer-events: none; z-index: 0;
 }
 
 body::after {
   content: '';
   position: fixed; inset: 0;
-  background-image: radial-gradient(rgba(255,255,255,0.06) 1px, transparent 1px);
+  background-image: radial-gradient(rgba(255,255,255,0.05) 1px, transparent 1px);
   background-size: 28px 28px;
   pointer-events: none; z-index: 0;
 }
@@ -74,12 +74,13 @@ body::after {
   overflow-y: auto; overflow-x: hidden; justify-content: flex-start;
   -webkit-overflow-scrolling: touch; touch-action: pan-y;
 }
+.screen.scrollable > * { flex-shrink: 0; }
 
 @supports not (backdrop-filter: blur(1px)) {
   .result-stats,
   .result-rank,
   .leader-row,
-  .btn-board { background: rgba(10,63,77,0.92); }
+  .btn-board { background: rgba(0,37,122,0.92); }
 }
 
 /* ============ MAIN SCREEN ============ */
@@ -89,12 +90,13 @@ body::after {
   gap: 0;
 }
 
-.brand-logo-fallback {
-  font-size: 26px; font-weight: 900; color: var(--white);
+.brand-logo {
+  font-size: 30px; font-weight: 900; color: var(--white);
   letter-spacing: -0.5px; margin-bottom: 6px; text-align: center;
-  text-shadow: 0 2px 16px rgba(28,143,163,0.5);
+  text-shadow: 0 2px 16px rgba(46,91,255,0.5);
   line-height: 1.1;
 }
+.brand-logo span { color: var(--cyan); }
 
 .brand-tagline {
   font-size: 11px; font-weight: 700;
@@ -104,16 +106,16 @@ body::after {
 
 .main-hero {
   width: 100%; max-width: 340px;
-  background: linear-gradient(135deg, var(--teal) 0%, var(--teal-deep) 60%, var(--teal-dark) 100%);
+  background: linear-gradient(135deg, var(--blue) 0%, var(--blue-deep) 60%, var(--blue-dark) 100%);
   border-radius: 24px; padding: 24px 22px 22px;
   margin-bottom: 20px; position: relative; overflow: hidden;
   border: 1px solid var(--card-border);
-  box-shadow: 0 12px 40px rgba(6,39,49,0.5);
+  box-shadow: 0 12px 40px rgba(0,22,64,0.5);
 }
 .main-hero::before {
-  content: '🍓';
+  content: '🪙';
   position: absolute; top: 8px; right: 18px;
-  font-size: 64px; opacity: 0.55;
+  font-size: 64px; opacity: 0.5;
   transform: rotate(12deg);
 }
 .main-hero::after {
@@ -137,23 +139,24 @@ body::after {
 }
 .attempt-dot {
   width: 10px; height: 10px; border-radius: 50%;
-  background: var(--teal-light);
-  box-shadow: 0 0 10px var(--teal-glow);
-  transition: all 0.3s;
+  background: var(--blue-light);
+  box-shadow: 0 0 10px var(--blue-glow);
+  transition: all 0.3s; flex-shrink: 0;
 }
 .attempt-dot.empty { background: rgba(255,255,255,0.15); box-shadow: none; }
-.attempts-label { font-size: 13px; color: var(--text-dim); font-weight: 700; margin-left: 4px; }
+.attempts-label { font-size: 13px; color: var(--text-dim); font-weight: 700; margin-left: 4px; white-space: nowrap; }
 
 .btn-play {
   display: flex; align-items: center; justify-content: center; gap: 8px;
   width: 100%; max-width: 340px; padding: 17px 32px;
-  background: linear-gradient(135deg, var(--teal-light) 0%, var(--teal) 100%);
+  background: linear-gradient(135deg, var(--blue-light) 0%, var(--blue) 100%);
   color: var(--white); font-family: inherit; font-size: 17px; font-weight: 900;
   border: none; border-radius: 16px; cursor: pointer; letter-spacing: 0.5px;
-  box-shadow: 0 6px 28px var(--teal-glow), inset 0 1px 0 rgba(255,255,255,0.2);
+  box-shadow: 0 6px 28px var(--blue-glow), inset 0 1px 0 rgba(255,255,255,0.2);
   -webkit-tap-highlight-color: transparent; transition: transform 0.12s, box-shadow 0.12s;
+  line-height: 1.2;
 }
-.btn-play:active { transform: scale(0.96); box-shadow: 0 2px 12px var(--teal-glow); }
+.btn-play:active { transform: scale(0.96); box-shadow: 0 2px 12px var(--blue-glow); }
 
 .btn-board {
   width: 100%; max-width: 340px; padding: 14px 32px;
@@ -163,17 +166,18 @@ body::after {
   cursor: pointer; margin-top: 10px;
   -webkit-tap-highlight-color: transparent; transition: background 0.2s;
   backdrop-filter: blur(8px);
+  line-height: 1.2;
 }
 .btn-board:active { background: rgba(255,255,255,0.15); }
 
 /* ============ GAME SCREEN ============ */
-#gameScreen { padding: 0; background: var(--teal-dark); }
+#gameScreen { padding: 0; background: var(--blue-dark); }
 
 .game-hud {
   position: absolute; top: 0; left: 0; right: 0; z-index: 10;
   padding: calc(env(safe-area-inset-top, 20px) + 8px) 20px 10px;
   display: flex; align-items: center; justify-content: space-between;
-  background: linear-gradient(to bottom, rgba(6,39,49,0.98) 55%, transparent);
+  background: linear-gradient(to bottom, rgba(0,22,64,0.98) 55%, transparent);
 }
 
 .hud-score-wrap { display: flex; flex-direction: column; }
@@ -187,13 +191,13 @@ body::after {
 }
 
 .hud-timer-ring {
-  width: 46px; height: 46px; border-radius: 50%;
-  background: conic-gradient(var(--teal-light) var(--pct, 100%), rgba(255,255,255,0.1) 0%);
+  width: 46px; height: 46px; border-radius: 50%; flex-shrink: 0;
+  background: conic-gradient(var(--blue-light) var(--pct, 100%), rgba(255,255,255,0.1) 0%);
   display: flex; align-items: center; justify-content: center; position: relative;
 }
 .hud-timer-ring::before {
   content: ''; position: absolute; inset: 5px;
-  border-radius: 50%; background: var(--teal-dark);
+  border-radius: 50%; background: var(--blue-dark);
 }
 .hud-timer-num {
   font-size: 15px; font-weight: 900; position: relative; z-index: 1;
@@ -203,8 +207,9 @@ body::after {
 .hud-combo {
   font-size: 12px; font-weight: 900; color: var(--green);
   opacity: 0; transition: opacity 0.2s;
-  background: rgba(79,209,122,0.12); border: 1.5px solid var(--green);
+  background: rgba(47,212,119,0.12); border: 1.5px solid var(--green);
   border-radius: 20px; padding: 4px 12px; letter-spacing: 0.5px;
+  white-space: nowrap;
 }
 .hud-combo.visible { opacity: 1; }
 
@@ -220,25 +225,25 @@ body::after {
 .game-object:active { transform: scale(0.82) !important; }
 
 .game-object.good {
-  background: radial-gradient(circle at 35% 35%, rgba(255,255,255,0.25), rgba(28,143,163,0.3));
+  background: radial-gradient(circle at 35% 35%, rgba(255,255,255,0.25), rgba(46,91,255,0.3));
   border: 2.5px solid rgba(255,255,255,0.5);
-  box-shadow: 0 4px 20px rgba(14,90,107,0.5), inset 0 1px 0 rgba(255,255,255,0.3);
+  box-shadow: 0 4px 20px rgba(0,51,160,0.5), inset 0 1px 0 rgba(255,255,255,0.3);
 }
 .game-object.bonus {
-  background: radial-gradient(circle at 35% 35%, rgba(255,210,63,0.3), rgba(232,98,46,0.3));
+  background: radial-gradient(circle at 35% 35%, rgba(255,199,44,0.3), rgba(0,182,237,0.3));
   border: 2.5px solid var(--yellow);
-  box-shadow: 0 4px 28px rgba(255,210,63,0.6);
+  box-shadow: 0 4px 28px rgba(255,199,44,0.6);
   animation: bonusPulse 1s ease infinite;
 }
 .game-object.bad {
   background: radial-gradient(circle at 35% 35%, rgba(255,110,100,0.35), rgba(180,20,10,0.25));
-  border: 2.5px solid #FF5C4C;
-  box-shadow: 0 4px 18px rgba(255,92,76,0.55), inset 0 1px 0 rgba(255,150,150,0.2);
+  border: 2.5px solid #FF5454;
+  box-shadow: 0 4px 18px rgba(255,84,84,0.55), inset 0 1px 0 rgba(255,150,150,0.2);
 }
 
 @keyframes bonusPulse {
-  0%,100% { box-shadow: 0 4px 28px rgba(255,210,63,0.6); }
-  50%      { box-shadow: 0 4px 50px rgba(255,210,63,0.95), 0 0 70px rgba(232,98,46,0.4); }
+  0%,100% { box-shadow: 0 4px 28px rgba(255,199,44,0.6); }
+  50%      { box-shadow: 0 4px 50px rgba(255,199,44,0.95), 0 0 70px rgba(0,182,237,0.4); }
 }
 @keyframes catchPop {
   0%   { transform: scale(1); opacity: 1; }
@@ -257,6 +262,7 @@ body::after {
 .score-popup {
   position: absolute; font-size: 18px; font-weight: 900;
   pointer-events: none; animation: scoreFloat 0.9s ease forwards; z-index: 20;
+  white-space: nowrap;
 }
 .score-popup.positive { color: var(--green); }
 .score-popup.negative { color: var(--red); }
@@ -276,13 +282,13 @@ body::after {
 
 .countdown-overlay {
   position: absolute; inset: 0; display: flex; align-items: center; justify-content: center;
-  background: rgba(8,48,59,0.88); backdrop-filter: blur(6px);
+  background: rgba(0,30,90,0.88); backdrop-filter: blur(6px);
   z-index: 50; opacity: 0; pointer-events: none; transition: opacity 0.2s;
 }
 .countdown-overlay.active { opacity: 1; pointer-events: auto; }
 .countdown-num {
   font-size: 110px; font-weight: 900; color: var(--white);
-  text-shadow: 0 0 60px var(--teal-glow), 0 0 120px var(--teal-glow);
+  text-shadow: 0 0 60px var(--blue-glow), 0 0 120px var(--blue-glow);
   animation: countPop 0.55s cubic-bezier(0.3,1.4,0.5,1);
 }
 @keyframes countPop {
@@ -294,7 +300,7 @@ body::after {
 .booster-indicator {
   position: absolute; top: calc(env(safe-area-inset-top, 20px) + 66px);
   left: 50%; transform: translateX(-50%);
-  background: rgba(79,209,122,0.12); border: 1.5px solid var(--green);
+  background: rgba(47,212,119,0.12); border: 1.5px solid var(--green);
   border-radius: 20px; padding: 5px 16px;
   font-size: 12px; font-weight: 700; color: var(--green);
   z-index: 15; display: none; white-space: nowrap;
@@ -304,44 +310,52 @@ body::after {
 /* ============ RESULT SCREEN ============ */
 #resultScreen {
   justify-content: flex-start; gap: 0;
-  padding-top: calc(env(safe-area-inset-top, 20px) + 28px);
-  padding-bottom: calc(env(safe-area-inset-bottom, 20px) + 60px);
+  padding-top: calc(env(safe-area-inset-top, 20px) + 32px);
+  padding-bottom: calc(env(safe-area-inset-bottom, 20px) + 120px);
 }
 
-.result-logo-wrap {
-  position: relative; width: 200px; height: 200px; margin-bottom: 20px;
+.result-badge-wrap {
+  width: 88px; height: 88px; border-radius: 50%;
+  background: linear-gradient(135deg, var(--blue-light) 0%, var(--blue) 100%);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 42px; margin-bottom: 18px;
+  box-shadow: 0 8px 32px var(--blue-glow), inset 0 1px 0 rgba(255,255,255,0.25);
+  border: 1px solid rgba(255,255,255,0.25);
+  flex-shrink: 0;
 }
-.result-logo-grid {
-  width: 100%; height: 100%;
-  display: grid; grid-template-columns: repeat(10, 1fr); grid-template-rows: repeat(10, 1fr); gap: 2px;
+
+.result-brand {
+  font-size: 22px; font-weight: 900; color: var(--white);
+  margin-bottom: 24px; text-align: center; letter-spacing: -0.3px;
+  flex-shrink: 0;
 }
-.pixel-cell {
-  border-radius: 4px; opacity: 0; transform: scale(0);
-  transition: opacity 0.2s ease, transform 0.25s cubic-bezier(0.3,1.5,0.5,1);
-}
-.pixel-cell.revealed { opacity: 1; transform: scale(1); }
+.result-brand span { color: var(--cyan); }
 
 .result-score-label {
   font-size: 11px; font-weight: 700; letter-spacing: 3px;
   text-transform: uppercase; color: var(--text-dim);
   margin-bottom: 4px; text-align: center;
+  flex-shrink: 0;
 }
 .result-score {
   font-size: 56px; font-weight: 900; color: var(--white); line-height: 1;
   margin-bottom: 4px; text-align: center;
-  text-shadow: 0 0 40px var(--teal-glow);
+  text-shadow: 0 0 40px var(--blue-glow);
+  font-variant-numeric: tabular-nums;
+  flex-shrink: 0;
 }
-.result-best { font-size: 13px; color: var(--text-dim); margin-bottom: 18px; text-align: center; }
+.result-best { font-size: 13px; color: var(--text-dim); margin-bottom: 18px; text-align: center; flex-shrink: 0; }
 
 .result-stats {
   display: flex; width: 100%; max-width: 320px; margin-bottom: 14px;
   background: var(--card); border: 1px solid var(--card-border);
   border-radius: 18px; overflow: hidden; backdrop-filter: blur(8px);
+  flex-shrink: 0;
 }
-.result-stat { flex: 1; padding: 14px 8px; text-align: center; border-right: 1px solid var(--card-border); }
+.result-stat { flex: 1; padding: 14px 6px; text-align: center; border-right: 1px solid var(--card-border); min-width: 0; }
 .result-stat:last-child { border-right: none; }
-.result-stat-value { font-size: 22px; font-weight: 900; color: var(--white); }
-.result-stat-label { font-size: 10px; color: var(--text-dim); text-transform: uppercase; letter-spacing: 1px; margin-top: 2px; font-weight: 700; }
+.result-stat-value { font-size: 22px; font-weight: 900; color: var(--white); font-variant-numeric: tabular-nums; line-height: 1.2; }
+.result-stat-label { font-size: 10px; color: var(--text-dim); text-transform: uppercase; letter-spacing: 0.5px; margin-top: 2px; font-weight: 700; }
 
 .result-rank {
   display: flex; align-items: center; gap: 12px;
@@ -349,37 +363,44 @@ body::after {
   border-radius: 18px; padding: 14px 18px;
   margin-bottom: 16px; width: 100%; max-width: 320px;
   backdrop-filter: blur(8px);
+  flex-shrink: 0;
 }
-.result-rank-pos { font-size: 24px; font-weight: 900; color: var(--teal-light); min-width: 44px; }
+.result-rank-pos { font-size: 24px; font-weight: 900; color: var(--cyan); min-width: 44px; flex-shrink: 0; }
 .result-rank-text { font-size: 13px; color: var(--text-dim); line-height: 1.4; }
 
-.result-buttons { width: 100%; max-width: 320px; display: flex; flex-direction: column; gap: 10px; }
+.result-buttons { width: 100%; max-width: 320px; display: flex; flex-direction: column; gap: 10px; flex-shrink: 0; }
 
 .btn-invite {
   display: flex; align-items: center; justify-content: center; gap: 8px;
   width: 100%; padding: 16px 24px;
-  background: linear-gradient(135deg, var(--amber) 0%, var(--teal) 100%);
+  background: linear-gradient(135deg, var(--cyan) 0%, var(--blue) 100%);
   color: var(--white); font-family: inherit; font-size: 15px; font-weight: 700;
   border: none; border-radius: 16px; cursor: pointer;
-  box-shadow: 0 4px 20px var(--amber-glow);
+  box-shadow: 0 4px 20px var(--cyan-glow);
   -webkit-tap-highlight-color: transparent; transition: transform 0.12s;
+  line-height: 1.2; text-align: center;
 }
 .btn-invite:active { transform: scale(0.97); }
 
 .result-offer {
   width: 100%; max-width: 320px;
-  background: linear-gradient(135deg, var(--teal) 0%, var(--teal-deep) 50%, var(--teal-dark) 100%);
+  background: linear-gradient(135deg, var(--blue) 0%, var(--blue-deep) 50%, var(--blue-dark) 100%);
   border: 1px solid rgba(255,255,255,0.2);
-  border-radius: 22px; padding: 22px 20px;
+  border-radius: 22px; padding: 24px 20px;
   margin-top: 16px;
-  margin-bottom: 32px;
   text-align: center;
-  box-shadow: 0 8px 36px rgba(6,39,49,0.5);
+  box-shadow: 0 8px 36px rgba(0,22,64,0.5);
   position: relative; overflow: hidden;
+  flex-shrink: 0;
 }
 .result-offer::before {
   content: ''; position: absolute; inset: 0;
-  background: radial-gradient(ellipse at top, rgba(28,143,163,0.3) 0%, transparent 70%);
+  background: radial-gradient(ellipse at top, rgba(46,91,255,0.3) 0%, transparent 70%);
+  pointer-events: none;
+}
+.result-offer-brand {
+  font-size: 18px; font-weight: 900; color: var(--white);
+  margin-bottom: 12px; position: relative; letter-spacing: -0.3px;
 }
 .result-offer-title {
   font-size: 12px; font-weight: 700; color: var(--text-dim);
@@ -387,17 +408,24 @@ body::after {
   margin-bottom: 6px; position: relative;
 }
 .result-offer-amount {
-  font-size: 44px; font-weight: 900; color: var(--yellow);
-  line-height: 1; margin: 4px 0; position: relative;
-  text-shadow: 0 2px 16px rgba(255,210,63,0.4);
+  font-size: 40px; font-weight: 900; color: var(--yellow);
+  line-height: 1; margin: 4px 0 8px; position: relative;
+  text-shadow: 0 2px 16px rgba(255,199,44,0.4);
 }
 .result-offer-desc {
   font-size: 12px; color: var(--text-dim); line-height: 1.5; position: relative;
+  margin-bottom: 18px;
 }
-.result-offer-brand {
-  font-size: 18px; font-weight: 900; color: var(--white);
-  margin-bottom: 10px; position: relative; letter-spacing: -0.3px;
+.btn-offer-cta {
+  display: flex; align-items: center; justify-content: center; gap: 8px;
+  width: 100%; padding: 14px 20px;
+  background: var(--white); color: var(--blue);
+  font-family: inherit; font-size: 14px; font-weight: 900;
+  border: none; border-radius: 14px; cursor: pointer;
+  position: relative; z-index: 1;
+  -webkit-tap-highlight-color: transparent; transition: transform 0.12s;
 }
+.btn-offer-cta:active { transform: scale(0.97); }
 
 /* ============ LEADERBOARD ============ */
 #leaderScreen {
@@ -414,6 +442,7 @@ body::after {
   background: var(--card); border: 1px solid var(--card-border); border-radius: 12px;
   color: var(--white); font-size: 18px; cursor: pointer; border: none;
   font-family: inherit; -webkit-tap-highlight-color: transparent; backdrop-filter: blur(8px);
+  flex-shrink: 0;
 }
 .leader-title {
   flex: 1; text-align: center; font-size: 17px; font-weight: 900; margin-right: 40px;
@@ -425,16 +454,16 @@ body::after {
   width: 48px; height: 48px; border-radius: 50%;
   background: var(--card); border: 1.5px solid var(--card-border);
   display: flex; align-items: center; justify-content: center;
-  font-size: 18px; font-weight: 700;
+  font-size: 18px; font-weight: 700; flex-shrink: 0;
 }
 .podium-item:nth-child(2) .podium-avatar {
   width: 62px; height: 62px; font-size: 22px;
-  background: linear-gradient(135deg, var(--teal-light), var(--teal));
+  background: linear-gradient(135deg, var(--blue-light), var(--blue));
   border: 2px solid rgba(255,255,255,0.3);
-  box-shadow: 0 6px 24px var(--teal-glow);
+  box-shadow: 0 6px 24px var(--blue-glow);
 }
 .podium-name { font-size: 12px; color: var(--text-dim); font-weight: 700; max-width: 72px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
-.podium-score { font-size: 13px; font-weight: 900; }
+.podium-score { font-size: 13px; font-weight: 900; font-variant-numeric: tabular-nums; }
 .podium-badge { font-size: 18px; }
 
 .leader-list {
@@ -448,22 +477,22 @@ body::after {
   backdrop-filter: blur(8px);
 }
 .leader-row.me {
-  border-color: var(--teal-light);
-  background: rgba(28,143,163,0.15);
-  box-shadow: 0 2px 16px rgba(14,90,107,0.2);
+  border-color: var(--blue-light);
+  background: rgba(46,91,255,0.15);
+  box-shadow: 0 2px 16px rgba(0,51,160,0.2);
 }
-.leader-pos { font-size: 13px; font-weight: 700; color: var(--text-dim); min-width: 22px; }
-.leader-row.me .leader-pos { color: var(--teal-light); }
+.leader-pos { font-size: 13px; font-weight: 700; color: var(--text-dim); min-width: 22px; flex-shrink: 0; }
+.leader-row.me .leader-pos { color: var(--blue-light); }
 .leader-avatar-sm {
-  width: 34px; height: 34px; border-radius: 50%;
+  width: 34px; height: 34px; border-radius: 50%; flex-shrink: 0;
   background: var(--card); border: 1px solid var(--card-border);
   display: flex; align-items: center; justify-content: center; font-size: 13px; font-weight: 700;
 }
-.leader-name { flex: 1; font-size: 14px; font-weight: 700; }
-.leader-score-sm { font-size: 13px; font-weight: 700; color: var(--text-dim); }
-.sl-badge {
-  font-size: 9px;
-  background: linear-gradient(135deg, var(--teal-light), var(--teal));
+.leader-name { flex: 1; font-size: 14px; font-weight: 700; min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.leader-score-sm { font-size: 13px; font-weight: 700; color: var(--text-dim); flex-shrink: 0; font-variant-numeric: tabular-nums; }
+.vtb-badge {
+  font-size: 9px; flex-shrink: 0;
+  background: linear-gradient(135deg, var(--blue-light), var(--blue));
   color: var(--white); padding: 2px 7px; border-radius: 6px; font-weight: 700;
   letter-spacing: 0.5px; margin-left: 6px;
 }
@@ -475,12 +504,12 @@ body::after {
 
 <!-- ===== MAIN SCREEN ===== -->
 <div class="screen active" id="mainScreen">
-  <div class="brand-logo-fallback">СПЕЛОЕ ЛЕТО</div>
-  <div class="brand-tagline">Окунись во вкус</div>
+  <div class="brand-logo">ВТБ <span>Копи и Лети</span></div>
+  <div class="brand-tagline">Лови капитал</div>
 
   <div class="main-hero">
-    <div class="main-hero-title">Лови <em>лето</em>,<br>зови друзей!</div>
-    <div class="main-hero-desc">Тапай по фруктам и ягодам «Спелое Лето», избегай обманок, набирай очки. Пригласи друга&nbsp;— бустер и&nbsp;скидка для вас обоих.</div>
+    <div class="main-hero-title">Лови <em>монеты</em>,<br>зови друзей!</div>
+    <div class="main-hero-desc">Тапай по монетам и купюрам, избегай комиссий и просрочек, набирай капитал. Пригласи друга&nbsp;— бустер для вас обоих.</div>
   </div>
 
   <div class="attempts-row">
@@ -488,7 +517,7 @@ body::after {
     <span class="attempts-label" id="attemptsLabel">3 попытки</span>
   </div>
 
-  <button class="btn-play" id="btnPlay">☀️ ОКУНУТЬСЯ!</button>
+  <button class="btn-play" id="btnPlay">💰 НАЧАТЬ КОПИТЬ!</button>
   <button class="btn-board" id="btnLeaderFromMain">🏆 Рейтинг</button>
 </div>
 
@@ -496,7 +525,7 @@ body::after {
 <div class="screen" id="gameScreen">
   <div class="game-hud">
     <div class="hud-score-wrap">
-      <div class="hud-score-label">Счёт</div>
+      <div class="hud-score-label">Капитал</div>
       <div class="hud-score" id="hudScore">0</div>
     </div>
     <div class="hud-combo" id="hudCombo">x3 COMBO!</div>
@@ -504,7 +533,7 @@ body::after {
       <div class="hud-timer-num" id="hudTimer">30</div>
     </div>
   </div>
-  <div class="booster-indicator" id="boosterInd">⚡ x2 ЛЕТО!</div>
+  <div class="booster-indicator" id="boosterInd">⚡ x2 КЭШБЭК!</div>
   <div class="game-canvas" id="gameCanvas"></div>
   <div class="countdown-overlay" id="countdown">
     <div class="countdown-num" id="countdownNum">3</div>
@@ -513,31 +542,36 @@ body::after {
 
 <!-- ===== RESULT SCREEN ===== -->
 <div class="screen scrollable" id="resultScreen">
-  <div class="result-logo-wrap">
-    <div class="result-logo-grid" id="logoGrid"></div>
-  </div>
-  <div class="result-score-label">Твой счёт</div>
+  <div class="result-badge-wrap">💰</div>
+  <div class="result-brand">ВТБ <span>Копи и Лети</span></div>
+
+  <div class="result-score-label">Твой капитал</div>
   <div class="result-score" id="finalScore">0</div>
   <div class="result-best">Рекорд: <span id="bestScore">0</span></div>
+
   <div class="result-stats">
     <div class="result-stat"><div class="result-stat-value" id="statCaught">0</div><div class="result-stat-label">Поймано</div></div>
     <div class="result-stat"><div class="result-stat-value" id="statCombo">0</div><div class="result-stat-label">Макс комбо</div></div>
     <div class="result-stat"><div class="result-stat-value" id="statMissed">0</div><div class="result-stat-label">Промахов</div></div>
   </div>
+
   <div class="result-rank">
     <div class="result-rank-pos" id="rankPos">#4</div>
     <div class="result-rank-text">Место в рейтинге.<br>Зови друга — поднимись выше! 🚀</div>
   </div>
+
   <div class="result-buttons">
-    <button class="btn-invite" id="btnInvite">🍓 Позвать друга (+1 попытка)</button>
+    <button class="btn-invite" id="btnInvite">🪙 Позвать друга (+1 попытка)</button>
     <button class="btn-play" id="btnPlayAgain">Играть снова</button>
     <button class="btn-board" id="btnLeaderFromResult">🏆 Рейтинг</button>
   </div>
+
   <div class="result-offer">
-    <div class="result-offer-brand">СПЕЛОЕ ЛЕТО</div>
-    <div class="result-offer-title">Приведи друга</div>
-    <div class="result-offer-amount">−20%</div>
-    <div class="result-offer-desc">Скидка для вас обоих на следующую покупку «Спелое Лето»</div>
+    <div class="result-offer-brand">ВТБ</div>
+    <div class="result-offer-title">Оформи карту</div>
+    <div class="result-offer-amount">до 10%</div>
+    <div class="result-offer-desc">Кэшбэк на повседневные покупки. Оформление онлайн за 2 минуты</div>
+    <button class="btn-offer-cta" id="btnGetCard">Оформить карту →</button>
   </div>
 </div>
 
@@ -550,7 +584,7 @@ body::after {
   <div class="leader-podium" id="podium"></div>
   <div class="leader-list" id="leaderList"></div>
   <div class="leader-footer">
-    <button class="btn-invite" id="btnInviteFromLeader">🍓 Позвать друга (+1 попытка)</button>
+    <button class="btn-invite" id="btnInviteFromLeader">🪙 Позвать друга (+1 попытка)</button>
   </div>
 </div>
 
@@ -573,52 +607,30 @@ let _userId = null, _userName = 'Игрок';
   }
 
   if (!_userId) {
-    let a = localStorage.getItem('sl_anon');
-    if (!a) { a = 'a' + Math.random().toString(36).slice(2); localStorage.setItem('sl_anon', a); }
+    let a = localStorage.getItem('vtb_anon');
+    if (!a) { a = 'a' + Math.random().toString(36).slice(2); localStorage.setItem('vtb_anon', a); }
     _userId = a;
   }
 })();
 
 // ====== STATE ======
 let score = 0, timeLeft = 30, combo = 0, maxCombo = 0, caught = 0, missed = 0;
-let attempts = 3, bestScore = parseInt(localStorage.getItem('sl_best') || '0');
+let attempts = 3, bestScore = parseInt(localStorage.getItem('vtb_best') || '0');
 let hasBooster = false, gameRunning = false, gameTimer = null, spawnTimer = null, objectId = 0;
 let previousScreen = 'mainScreen', currentScreen = 'mainScreen';
 
 const leaderboard = [
-  { name: 'Алиса',   score: 1440, sl: true  },
-  { name: 'Максим',  score: 1120, sl: true  },
-  { name: 'Дарья',   score: 930,  sl: false },
-  { name: _userName, score: bestScore, sl: true, me: true },
-  { name: 'Артём',   score: 720,  sl: true  },
-  { name: 'Катя',    score: 640,  sl: false },
-  { name: 'Дмитрий', score: 580,  sl: true  },
-  { name: 'Настя',   score: 510,  sl: false },
-  { name: 'Иван',    score: 440,  sl: true  },
-  { name: 'Олег',    score: 370,  sl: false },
+  { name: 'Алиса',   score: 1440, vtb: true  },
+  { name: 'Максим',  score: 1120, vtb: true  },
+  { name: 'Дарья',   score: 930,  vtb: false },
+  { name: _userName, score: bestScore, vtb: true, me: true },
+  { name: 'Артём',   score: 720,  vtb: true  },
+  { name: 'Катя',    score: 640,  vtb: false },
+  { name: 'Дмитрий', score: 580,  vtb: true  },
+  { name: 'Настя',   score: 510,  vtb: false },
+  { name: 'Иван',    score: 440,  vtb: true  },
+  { name: 'Олег',    score: 370,  vtb: false },
 ];
-
-// Точный пиксельный паттерн логотипа ЛЕТО (7 строк на букву)
-const LETTER = {
-  L: [[1,0,0,0,0],[1,0,0,0,0],[1,0,0,0,0],[1,0,0,0,0],[1,0,0,0,0],[1,0,0,0,0],[1,1,1,1,1]],
-  Е: [[1,1,1,1,1],[1,0,0,0,0],[1,0,0,0,0],[1,1,1,1,0],[1,0,0,0,0],[1,0,0,0,0],[1,1,1,1,1]],
-  Т: [[1,1,1,1,1],[0,0,1,0,0],[0,0,1,0,0],[0,0,1,0,0],[0,0,1,0,0],[0,0,1,0,0],[0,0,1,0,0]],
-  О: [[0,1,1,1,0],[1,0,0,0,1],[1,0,0,0,1],[1,0,0,0,1],[1,0,0,0,1],[1,0,0,0,1],[0,1,1,1,0]],
-};
-
-function buildWordGrid(word) {
-  const rows = 7, gap = 1;
-  const letters = word.split('');
-  const totalCols = letters.length * 5 + (letters.length - 1) * gap;
-  const grid = Array.from({length: rows}, () => new Array(totalCols).fill(0));
-  letters.forEach((ch, wi) => {
-    const offsetX = wi * (5 + gap);
-    for (let r = 0; r < rows; r++)
-      for (let c = 0; c < 5; c++)
-        grid[r][offsetX + c] = LETTER[ch][r][c];
-  });
-  return grid;
-}
 
 // ====== NAV ======
 function showScreen(id) {
@@ -645,9 +657,9 @@ function updateAttemptDots() {
 updateAttemptDots();
 
 // ====== GAME OBJECTS ======
-const GOOD  = ['🍓','🍒','🍇','🍉','🍑','🥝','🫐','🍍','🍋','🍊'];
-const BONUS = ['☀️'];
-const BAD   = ['🍂','🌧️','🦟'];
+const GOOD  = ['🪙','💵','💴','💶','💷','🏦','💳','💲'];
+const BONUS = ['💎'];
+const BAD   = ['📉','🧾','⏳'];
 
 function spawnObject() {
   if (!gameRunning) return;
@@ -802,7 +814,7 @@ function endGame() {
 
   if (score > bestScore) {
     bestScore = score;
-    localStorage.setItem('sl_best', bestScore);
+    localStorage.setItem('vtb_best', bestScore);
   }
 
   const me = leaderboard.find(l => l.me);
@@ -818,43 +830,7 @@ function endGame() {
     document.getElementById('statCombo').textContent = maxCombo;
     document.getElementById('statMissed').textContent = missed;
     document.getElementById('rankPos').textContent = `#${myRank}`;
-    revealLogo();
   }, 400);
-}
-
-// ====== LOGO REVEAL ======
-function revealLogo() {
-  const grid = document.getElementById('logoGrid');
-  grid.innerHTML = '';
-
-  const word = buildWordGrid('ЛЕТО');
-  const COLS = word[0].length;
-  const ROWS = word.length;
-
-  grid.style.gridTemplateColumns = `repeat(${COLS}, 1fr)`;
-  grid.style.gridTemplateRows    = `repeat(${ROWS}, 1fr)`;
-  grid.parentElement.style.width  = '300px';
-  grid.parentElement.style.height = `${Math.round(300 * ROWS / COLS)}px`;
-
-  const cells = [];
-  for (let r = 0; r < ROWS; r++) {
-    for (let c = 0; c < COLS; c++) {
-      const cell = document.createElement('div');
-      cell.className = 'pixel-cell';
-      const isLit = word[r][c] === 1;
-      cell.style.background = isLit ? '#FFFFFF' : 'rgba(255,255,255,0.05)';
-      if (isLit) cell.style.boxShadow = '0 0 6px rgba(255,255,255,0.8)';
-      grid.appendChild(cell);
-      cells.push({ cell, isLit, col: c });
-    }
-  }
-
-  const bgCells  = cells.filter(c => !c.isLit);
-  const litCells = cells.filter(c => c.isLit);
-  bgCells.forEach((c, i) => setTimeout(() => c.cell.classList.add('revealed'), i * 4));
-  const bgDelay = bgCells.length * 4;
-  litCells.sort((a, b) => a.col - b.col);
-  litCells.forEach((c, i) => setTimeout(() => c.cell.classList.add('revealed'), bgDelay + i * 18));
 }
 
 // ====== LEADERBOARD ======
@@ -889,7 +865,7 @@ function renderLeaderboard() {
     row.innerHTML = `
       <div class="leader-pos">${i + 4}</div>
       <div class="leader-avatar-sm">${ini(p.name)}</div>
-      <div class="leader-name">${p.name}${p.sl ? '<span class="sl-badge">SL</span>' : ''}</div>
+      <div class="leader-name">${p.name}${p.vtb ? '<span class="vtb-badge">VTB</span>' : ''}</div>
       <div class="leader-score-sm">${p.score}</div>`;
     list.appendChild(row);
   });
@@ -897,22 +873,29 @@ function renderLeaderboard() {
 
 // ====== INVITE ======
 function doInvite() {
-  // TODO: заменить на реальный реферальный URL «Спелое Лето»
-  const url  = 'https://speloeleto.ru';
-  const text = encodeURIComponent(`Играй со мной в Спелое Лето Catch! ☀️ ${url}`);
+  // TODO: заменить на реальный реферальный URL ВТБ
+  const url  = 'https://vtb.ru';
+  const text = encodeURIComponent(`Играй со мной в Копи и Лети от ВТБ! 💰 ${url}`);
 
   try { window.open(`https://t.me/share/url?url=${encodeURIComponent(url)}&text=${text}`, '_blank'); } catch (e) {}
-  try { window.Telegram?.WebApp?.switchInlineQuery?.('Окунись с другом!', ['users']); } catch (e) {}
+  try { window.Telegram?.WebApp?.switchInlineQuery?.('Копи капитал с другом!', ['users']); } catch (e) {}
 
   hasBooster = true;
   attempts = Math.min(attempts + 1, 5);
   updateAttemptDots();
 }
 
+// ====== GET CARD CTA ======
+function doGetCard() {
+  // TODO: заменить на реальную ссылку оформления карты ВТБ
+  const url = 'https://vtb.ru/cards';
+  try { window.open(url, '_blank'); } catch (e) {}
+}
+
 // ====== HELPER: запуск игры с проверкой попыток ======
 function tryStartGame() {
   if (attempts <= 0) {
-    alert('Попытки закончились! Позови друга 🍓');
+    alert('Попытки закончились! Позови друга 🪙');
     return;
   }
   attempts--;
@@ -925,6 +908,7 @@ document.getElementById('btnPlay').addEventListener('click', tryStartGame);
 document.getElementById('btnPlayAgain').addEventListener('click', tryStartGame);
 document.getElementById('btnInvite').addEventListener('click', doInvite);
 document.getElementById('btnInviteFromLeader').addEventListener('click', doInvite);
+document.getElementById('btnGetCard').addEventListener('click', doGetCard);
 document.getElementById('btnLeaderFromMain').addEventListener('click', () => { renderLeaderboard(); showScreen('leaderScreen'); });
 document.getElementById('btnLeaderFromResult').addEventListener('click', () => { renderLeaderboard(); showScreen('leaderScreen'); });
 document.getElementById('btnBackFromLeader').addEventListener('click', () => {
